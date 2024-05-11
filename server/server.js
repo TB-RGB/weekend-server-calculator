@@ -3,19 +3,56 @@ const app = express();
 let PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
+// ? Mock Obj for thinking
+  //{ numOne: 
+  //  numTwo:
+  //  operator:
+  //}
+
+
 let calculations = []
 
+const itsMathinTime = {
+  '+': (x,y)=>{return Number(x) + Number(y)},
+  '-': (x,y)=>{return Number(x) - Number(y)},
+  '*': (x,y)=>{return Number(x) * Number(y)},
+  '/': (x,y)=>{return Number(x) / Number(y)}
+}
+
+let doCalc = (calcObj)=>{
+  let numOne = calcObj.numOne
+  let numTwo = calcObj.numTwo
+  let operator = calcObj.operator
+  let returnObj = {}
+
+  returnObj.numOne = numOne
+  returnObj.numTwo = numTwo
+  returnObj.operator = operator
+  returnObj.result = itsMathinTime[operator](numOne,numTwo)
+
+  calculations.push(returnObj)
+
+}
 
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
-
+app.get('/calculations', (req,res)=>{
+  res.send(calculations)
+})
 // POST /calculations
+app.post('/calculations', (req, res)=>{
+  let calcData = req.body
 
+  doCalc(calcData)
+
+  res.sendStatus(201)
+})
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
