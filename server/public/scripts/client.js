@@ -1,5 +1,33 @@
 console.log("client.js is sourced!");
 
+let onLoad = () =>{
+    axios({
+        method: 'GET',
+        url: '/calculations'
+    })
+        .then((response)=>{
+            console.log(response);
+
+            let calcHist = document.getElementById("resultHistory");
+            
+            let prevCalcs = response.data;
+
+            if (!prevCalcs == []){
+            calcHist.innerHTML = "";
+            for (let calc of prevCalcs) {
+              calcHist.innerHTML += `
+                  <div>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
+                  `;
+            }
+            // lastResult.innerHTML = `<h2>${
+            //   prevCalcs[prevCalcs.length - 1].result
+            // }</h2>`;
+          }
+        })
+    }
+
+    
+onLoad()
 let postObj = {};
 
 let sumAdd = (event) => {
@@ -79,12 +107,14 @@ let = renderCalcs = () => {
             <div>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
             `;
       }
-      lastResult.innerHTML = `<div>${
+      lastResult.innerHTML = `<h2>${
         prevCalcs[prevCalcs.length - 1].result
-      }</div>`;
+      }</h2>`;
     })
     .catch(function (error) {
       console.log(error);
       alert("ERR MERR GERRD, ERRERR. LERK ERT CERNSERL");
     });
 };
+
+
