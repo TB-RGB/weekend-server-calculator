@@ -1,6 +1,6 @@
 console.log("client.js is sourced!");
 
-let onLoad = () =>{
+function onLoad(){
     axios({
         method: 'GET',
         url: '/calculations'
@@ -30,38 +30,38 @@ let onLoad = () =>{
 onLoad()
 let postObj = {};
 
-let sumAdd = (event) => {
+function sumAdd(event){
   event.preventDefault();
 
   postObj.operator = "+";
 };
 
-let sumMin = (event) => {
+function sumMin(event){
   event.preventDefault();
 
   postObj.operator = "-";
 };
 
-let sumMult = (event) => {
+function sumMult(event){
   event.preventDefault();
 
   postObj.operator = "*";
 };
 
-let sumDiv = (event) => {
+function sumDiv(event){
   event.preventDefault();
 
   postObj.operator = "/";
 };
 
-let clearForms = (event) => {
-  event.preventDefault();
+function clearForms(event){
+event.preventDefault();
 
   document.getElementById("numOne").value = "";
   document.getElementById("numTwo").value = "";
 };
 
-let sendData = (event) => {
+function sendData(event){
   event.preventDefault();
 
   let numOne = document.getElementById("numOne").value;
@@ -90,7 +90,7 @@ let sendData = (event) => {
     });
 };
 
-let = renderCalcs = () => {
+function renderCalcs(){
   let calcHist = document.getElementById("resultHistory");
   let lastResult = document.getElementById("recentResult");
   axios({
