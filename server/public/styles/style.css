@@ -1,0 +1,123 @@
+input[type=number]{
+    outline: none;
+    width: 10%;
+    padding: 15px 25px;
+    font-size: 14px;
+    border-radius: 15px;
+}
+
+input[type=number]:focus{
+    background-color:thistle;
+}
+
+.opButton {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight:bolder;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    background-color:#9370d8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.opButton:hover{
+    background-color: #694fa1;
+}
+
+.opButton:active{
+    background-color: #694fa1;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.clearButton{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight:bolder;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    background-color:coral;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.clearButton:hover{
+    background-color:#c35a34;
+}
+
+.clearButton:active{
+    background-color: #c35a34;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.sendButton{
+    display: inline-block;
+    border-radius: 15px;
+    background-color: cornflowerblue;
+    border: none;
+    cursor: pointer;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    outline: none;
+    transition: all 0.5s;
+    box-shadow: 0 9px #999;
+}
+
+.sendButton span{
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.5s;
+    position: relative;
+}
+
+.sendButton span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.sendButton:hover span{
+    padding-right: 25px;
+}
+
+.sendButton:hover span:after{
+    opacity: 1;
+    right: 0;
+}
+
+.history{
+    padding:0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.result{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+#recentResults{
+    padding-top: 0cm;
+}
+
+body{
+    background-color: cornsilk;
+}

@@ -1,67 +1,62 @@
 console.log("client.js is sourced!");
 
-let onLoad = () =>{
-    axios({
-        method: 'GET',
-        url: '/calculations'
-    })
-        .then((response)=>{
-            console.log(response);
+function onLoad() {
+  axios({
+    method: "GET",
+    url: "/calculations",
+  }).then((response) => {
+    console.log(response);
 
-            let calcHist = document.getElementById("resultHistory");
-            
-            let prevCalcs = response.data;
+    let calcHist = document.getElementById("resultHistory");
 
-            if (!prevCalcs == []){
-            calcHist.innerHTML = "";
-            for (let calc of prevCalcs) {
-              calcHist.innerHTML += `
-                  <div>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
+    let prevCalcs = response.data;
+
+    if (!prevCalcs == []) {
+      calcHist.innerHTML = "";
+      for (let calc of prevCalcs) {
+        calcHist.innerHTML += `
+                  <div class='history'>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
                   `;
-            }
-            // lastResult.innerHTML = `<h2>${
-            //   prevCalcs[prevCalcs.length - 1].result
-            // }</h2>`;
-          }
-        })
+      }
     }
+  });
+}
 
-    
-onLoad()
+onLoad();
 let postObj = {};
 
-let sumAdd = (event) => {
+function sumAdd(event) {
   event.preventDefault();
 
   postObj.operator = "+";
-};
+}
 
-let sumMin = (event) => {
+function sumMin(event) {
   event.preventDefault();
 
   postObj.operator = "-";
-};
+}
 
-let sumMult = (event) => {
+function sumMult(event) {
   event.preventDefault();
 
   postObj.operator = "*";
-};
+}
 
-let sumDiv = (event) => {
+function sumDiv(event) {
   event.preventDefault();
 
   postObj.operator = "/";
-};
+}
 
-let clearForms = (event) => {
+function clearForms(event) {
   event.preventDefault();
 
   document.getElementById("numOne").value = "";
   document.getElementById("numTwo").value = "";
-};
+}
 
-let sendData = (event) => {
+function sendData(event) {
   event.preventDefault();
 
   let numOne = document.getElementById("numOne").value;
@@ -88,9 +83,9 @@ let sendData = (event) => {
       console.log(error);
       alert("ERR MERR GERRD, ERRERR. LERK ERT CERNSERL");
     });
-};
+}
 
-let = renderCalcs = () => {
+function renderCalcs() {
   let calcHist = document.getElementById("resultHistory");
   let lastResult = document.getElementById("recentResult");
   axios({
@@ -104,10 +99,10 @@ let = renderCalcs = () => {
       calcHist.innerHTML = "";
       for (let calc of prevCalcs) {
         calcHist.innerHTML += `
-            <div>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
+            <div class ='history'>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
             `;
       }
-      lastResult.innerHTML = `<h2>${
+      lastResult.innerHTML = `<h2 class='result'>${
         prevCalcs[prevCalcs.length - 1].result
       }</h2>`;
     })
@@ -115,6 +110,4 @@ let = renderCalcs = () => {
       console.log(error);
       alert("ERR MERR GERRD, ERRERR. LERK ERT CERNSERL");
     });
-};
-
-
+}
