@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Server-Side Calculator</title>    
+    <link rel="stylesheet" href="./styles/style.css">
     <script defer src="scripts/axios.js"></script>
     <script defer src="scripts/client.js" charset="utf-8"></script>
   </head>
@@ -10,14 +11,14 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
-      <input data-testid="numOne" placeholder="First Number" id="numOne">
-      <button onClick="sumAdd(event)">+</button>
-      <button onClick="sumMin(event)">-</button>
-      <button onClick="sumMult(event)">*</button>
-      <button onClick="sumDiv(event)">/</button>
-      <input data-testid="numTwo" placeholder="Second Number" id="numTwo">
-      <button onClick="sendData(event)">=</button>
-      <button onClick="clearForms(event)">C</button>
+      <input data-testid="numOne" placeholder="First Number" id="numOne" type="number">
+      <button class="opButton" onClick="sumAdd(event)">+</button>
+      <button class="opButton" onClick="sumMin(event)">-</button>
+      <button class="opButton" onClick="sumMult(event)">*</button>
+      <button class="opButton" onClick="sumDiv(event)">/</button>
+      <input data-testid="numTwo" placeholder="Second Number" id="numTwo" type="number">
+      <button class="sendButton" style="vertical-align: middle;" onClick="sendData(event)"><span>=</span></button>
+      <button class="clearButton" onClick="clearForms(event)">C</button>
     </form>
 
     <section data-testid="recentResult" id="recentResult">
