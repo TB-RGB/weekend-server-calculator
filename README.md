@@ -17,7 +17,7 @@ This is a practice in:
 
 - [Node.js](https://nodejs.org/en/)
 - [Axios](https://axios-http.com/docs/intro)
-- [Nodemon](https://www.npmjs.com/package/nodemon)**This is optional *but* if not using Nodemon you'll need to edit the `server` script to only say `node` in `package.json`**
+- [Nodemon](https://www.npmjs.com/package/nodemon) **This is optional *but* if not using Nodemon you'll need to edit the `server` script to only say `node` in `package.json`**
 
 
 ## Installation
