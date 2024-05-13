@@ -99,3 +99,25 @@ input[type=number]:focus{
     opacity: 1;
     right: 0;
 }
+
+.history{
+    padding:0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.result{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+#recentResults{
+    padding-top: 0cm;
+}
+
+body{
+    background-color: cornsilk;
+}
