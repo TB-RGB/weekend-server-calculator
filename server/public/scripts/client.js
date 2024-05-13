@@ -80,7 +80,7 @@ function sendData(event) {
       renderCalcs();
     })
     .catch(function (error) {
-      console.log(error);
+      console.error('Error on POST /calculations',error);
       alert("ERR MERR GERRD, ERRERR. LERK ERT CERNSERL");
     });
 }
@@ -107,7 +107,7 @@ function renderCalcs() {
       }</h2>`;
     })
     .catch(function (error) {
-      console.log(error);
+      console.error('Error on GET /calculations',error);
       alert("ERR MERR GERRD, ERRERR. LERK ERT CERNSERL");
     });
 }
