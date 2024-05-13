@@ -102,8 +102,9 @@ function renderCalcs() {
             <div class ='history'>${calc.numOne} ${calc.operator} ${calc.numTwo} = ${calc.result}</div>
             `;
       }
+      let lastHistory = prevCalcs[prevCalcs.length - 1]
       lastResult.innerHTML = `<h2 class='result'>${
-        prevCalcs[prevCalcs.length - 1].result
+        lastHistory.result
       }</h2>`;
     })
     .catch(function (error) {
